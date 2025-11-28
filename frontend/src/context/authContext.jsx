@@ -39,12 +39,12 @@ export const AuthProvider = ({ children }) => {
           setUser(res.data.user);
           localStorage.setItem("user", JSON.stringify(res.data.user));
         } else {
-          // invalid token -> cleanup
+          
           logout();
         }
       } catch (err) {
         console.error("verifyUser error:", err?.response?.data ?? err.message);
-        // treat server 500 or any failure as invalid token -> cleanup
+        
         logout();
       } finally {
         setLoading(false);
